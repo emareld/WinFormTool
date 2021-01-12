@@ -15,5 +15,13 @@ namespace WinFormTool
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            ToolDate.toolChineseDateTime = new ToolChineseDateTime(DateTime.Now);
+            this.Text = ToolDate.toolChineseDateTime.ChineseWeek;
+            
+        }
+
     }
 }
