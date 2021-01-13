@@ -29,23 +29,26 @@ namespace WinFormTool
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tabControl_main = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.statusStrip_main = new System.Windows.Forms.StatusStrip();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.panel_top = new System.Windows.Forms.Panel();
             this.panel_center = new System.Windows.Forms.Panel();
-            this.groupBox_date = new System.Windows.Forms.GroupBox();
-            this.lbl_date = new System.Windows.Forms.Label();
+            this.panel_top = new System.Windows.Forms.Panel();
             this.groupBox_ChineseDate = new System.Windows.Forms.GroupBox();
             this.lbl_chineseDate = new System.Windows.Forms.Label();
+            this.groupBox_date = new System.Windows.Forms.GroupBox();
+            this.lbl_date = new System.Windows.Forms.Label();
+            this.notifyIcon_main = new System.Windows.Forms.NotifyIcon(this.components);
             this.tabControl_main.SuspendLayout();
             this.panel_main.SuspendLayout();
-            this.panel_top.SuspendLayout();
             this.panel_center.SuspendLayout();
-            this.groupBox_date.SuspendLayout();
+            this.panel_top.SuspendLayout();
             this.groupBox_ChineseDate.SuspendLayout();
+            this.groupBox_date.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl_main
@@ -74,7 +77,7 @@ namespace WinFormTool
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
+            this.tabPage2.Size = new System.Drawing.Size(792, 331);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -97,16 +100,6 @@ namespace WinFormTool
             this.panel_main.Size = new System.Drawing.Size(800, 428);
             this.panel_main.TabIndex = 2;
             // 
-            // panel_top
-            // 
-            this.panel_top.Controls.Add(this.groupBox_ChineseDate);
-            this.panel_top.Controls.Add(this.groupBox_date);
-            this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_top.Location = new System.Drawing.Point(0, 0);
-            this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(800, 71);
-            this.panel_top.TabIndex = 1;
-            // 
             // panel_center
             // 
             this.panel_center.Controls.Add(this.tabControl_main);
@@ -116,25 +109,15 @@ namespace WinFormTool
             this.panel_center.Size = new System.Drawing.Size(800, 357);
             this.panel_center.TabIndex = 2;
             // 
-            // groupBox_date
+            // panel_top
             // 
-            this.groupBox_date.Controls.Add(this.lbl_date);
-            this.groupBox_date.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox_date.Location = new System.Drawing.Point(0, 0);
-            this.groupBox_date.Name = "groupBox_date";
-            this.groupBox_date.Size = new System.Drawing.Size(800, 36);
-            this.groupBox_date.TabIndex = 0;
-            this.groupBox_date.TabStop = false;
-            // 
-            // lbl_date
-            // 
-            this.lbl_date.AutoSize = true;
-            this.lbl_date.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_date.Location = new System.Drawing.Point(3, 17);
-            this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(41, 12);
-            this.lbl_date.TabIndex = 0;
-            this.lbl_date.Text = "label1";
+            this.panel_top.Controls.Add(this.groupBox_ChineseDate);
+            this.panel_top.Controls.Add(this.groupBox_date);
+            this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_top.Location = new System.Drawing.Point(0, 0);
+            this.panel_top.Name = "panel_top";
+            this.panel_top.Size = new System.Drawing.Size(800, 71);
+            this.panel_top.TabIndex = 1;
             // 
             // groupBox_ChineseDate
             // 
@@ -156,6 +139,30 @@ namespace WinFormTool
             this.lbl_chineseDate.TabIndex = 0;
             this.lbl_chineseDate.Text = "label2";
             // 
+            // groupBox_date
+            // 
+            this.groupBox_date.Controls.Add(this.lbl_date);
+            this.groupBox_date.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox_date.Location = new System.Drawing.Point(0, 0);
+            this.groupBox_date.Name = "groupBox_date";
+            this.groupBox_date.Size = new System.Drawing.Size(800, 36);
+            this.groupBox_date.TabIndex = 0;
+            this.groupBox_date.TabStop = false;
+            // 
+            // lbl_date
+            // 
+            this.lbl_date.AutoSize = true;
+            this.lbl_date.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_date.Location = new System.Drawing.Point(3, 17);
+            this.lbl_date.Name = "lbl_date";
+            this.lbl_date.Size = new System.Drawing.Size(41, 12);
+            this.lbl_date.TabIndex = 0;
+            this.lbl_date.Text = "label1";
+            // 
+            // notifyIcon_main
+            // 
+            this.notifyIcon_main.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_main_MouseDoubleClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -163,17 +170,19 @@ namespace WinFormTool
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.statusStrip_main);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.Text = "WinFormTools";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.frmMain_Resize);
             this.tabControl_main.ResumeLayout(false);
             this.panel_main.ResumeLayout(false);
-            this.panel_top.ResumeLayout(false);
             this.panel_center.ResumeLayout(false);
-            this.groupBox_date.ResumeLayout(false);
-            this.groupBox_date.PerformLayout();
+            this.panel_top.ResumeLayout(false);
             this.groupBox_ChineseDate.ResumeLayout(false);
             this.groupBox_ChineseDate.PerformLayout();
+            this.groupBox_date.ResumeLayout(false);
+            this.groupBox_date.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,6 +201,7 @@ namespace WinFormTool
         private System.Windows.Forms.Label lbl_chineseDate;
         private System.Windows.Forms.GroupBox groupBox_date;
         private System.Windows.Forms.Label lbl_date;
+        private System.Windows.Forms.NotifyIcon notifyIcon_main;
     }
 }
 

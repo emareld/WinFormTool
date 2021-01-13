@@ -39,8 +39,34 @@ namespace WinFormTool
                 ToolDate.toolChineseDateTime.SolarTerm,
                 ToolDate.toolChineseDateTime.ToDateTime(),
                 ToolDate.toolChineseDateTime.ToString());
+            //公历日期
+            lbl_date.Text = string.Format("{0} {1} {2} {3}",
+                ToolDate.GetDate().ObjResult, "","","");
             
             
+        }
+
+        private void notifyIcon_main_MouseDoubleClick(object sender, MouseEventArgs e)
+        {//设置任务栏右下角图标双击事件
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Show();
+                this.WindowState = FormWindowState.Normal;
+                notifyIcon_main.Visible = false;
+                this.ShowInTaskbar = true;
+            }
+        }
+
+        private void frmMain_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                this.ShowInTaskbar = false;
+                notifyIcon_main.Visible = true;
+                notifyIcon_main.Icon = Properties.Resources.logo;
+                notifyIcon_main.Text = this.Text;
+            }
         }
     }
 }

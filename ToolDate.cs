@@ -56,6 +56,66 @@ namespace WinFormTool
             }
             return toolResult;
         }
-        
+        /// <summary>
+        /// 返回当前日期yyyy-MM-dd
+        /// </summary>
+        /// <returns></returns>
+        public static ToolResult GetDate()
+        {
+            ToolResult toolResult = new ToolResult();
+            try
+            {
+                toolResult.ObjResult = DateTime.Now.ToString("yyyy-MM-dd");
+                toolResult.IsSucess = true;
+            }
+            catch (Exception ex)
+            {
+                toolResult.IsSucess = false;
+                toolResult.StrErrMessage = ex.Message;
+            }
+            return toolResult;
+        }
+        /// <summary>
+        /// 返回自定义样式的当前日期
+        /// </summary>
+        /// <param name="strFormat">日期样式</param>
+        /// <returns></returns>
+        public static ToolResult GetDate(string strFormat)
+        {
+            ToolResult toolResult = new ToolResult();
+            try
+            {
+                toolResult.ObjResult = DateTime.Now.ToString(strFormat);
+                toolResult.IsSucess = true;
+            }
+            catch (Exception ex)
+            {
+                toolResult.IsSucess = false;
+                toolResult.StrErrMessage = ex.Message;
+            }
+            return toolResult;
+        }
+        /// <summary>
+        /// 返回自定义样式的自定义日期
+        /// </summary>
+        /// <param name="dateTime">日期时间</param>
+        /// <param name="strFormat">日期样式</param>
+        /// <returns></returns>
+        public static ToolResult GetDate(DateTime dateTime,string strFormat)
+        {
+            ToolResult toolResult = new ToolResult();
+            try
+            {
+                toolResult.ObjResult = dateTime.ToString(strFormat);
+                toolResult.IsSucess = true;
+            }
+            catch (Exception ex)
+            {
+                toolResult.IsSucess = false;
+                toolResult.StrErrMessage = ex.Message;
+            }
+            return toolResult;
+        }
+
     }
 }

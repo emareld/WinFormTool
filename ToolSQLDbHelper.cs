@@ -9,7 +9,7 @@ using System.Text;
 namespace WinFormTool
 {
     /// <summary>
-    /// 数据库操作其类
+    /// SQLServer数据库操作其类
     /// </summary>
     class ToolSQLDbHelper
     {
