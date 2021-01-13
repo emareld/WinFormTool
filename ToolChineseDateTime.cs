@@ -136,7 +136,7 @@ namespace WinFormTool
 
         #region ====== 输出常规日期 ======
         /// <summary>
-        /// 转换为公历
+        /// 农历转换为公历
         /// </summary>
         /// <returns></returns>
         public DateTime ToDateTime()
@@ -171,7 +171,10 @@ namespace WinFormTool
         {
             return $"{Year}年{GetLeap()}{Month}月-{Day}日";
         }
-
+        /// <summary>
+        /// 长日期农历yyyy-MM-dd hh:mm:ss
+        /// </summary>
+        /// <returns></returns>
         public new string ToString()
         {
             return $"{Year}-{GetLeap(false)}{Month}-{Day} {_dateTime.Hour}:{_dateTime.Minute}:{_dateTime.Second}";
@@ -179,11 +182,19 @@ namespace WinFormTool
         #endregion
 
         #region ====== 输出中文日期及星期 ======
+        /// <summary>
+        /// 农历中文日期
+        /// </summary>
+        /// <returns></returns>
         public string ToChineseString()
         {
             return ToChineseString("yMd");
         }
-
+        /// <summary>
+        /// 农历中文日期
+        /// </summary>
+        /// <param name="format"></param>
+        /// <returns></returns>
         public string ToChineseString(string format)
         {
             var year = GetYear();
@@ -213,17 +224,26 @@ namespace WinFormTool
             var result = date.ToString();
             return string.IsNullOrEmpty(result) ? def : result;
         }
-
+        /// <summary>
+        /// 星期
+        /// </summary>
         public string ChineseWeek => _chineseWeek[(int)_dateTime.DayOfWeek];
         #endregion
 
         #region ====== 输出天干地支生肖 ======
-
+        /// <summary>
+        /// 天干地支
+        /// </summary>
+        /// <returns></returns>
         public string ToChineseEraString()
         {
             return ToChineseEraString("yMdHm");
         }
-
+        /// <summary>
+        /// 天干地支
+        /// </summary>
+        /// <param name="format"></param>
+        /// <returns></returns>
         public string ToChineseEraString(string format)
         {
             var year = GetEraYear();
@@ -261,7 +281,9 @@ namespace WinFormTool
             var result = date.ToString();
             return string.IsNullOrEmpty(result) ? def : result;
         }
-
+        /// <summary>
+        /// 生肖
+        /// </summary>
         public string ChineseZodiac => _chineseZodiac[(Year - 4) % 12];
         #endregion
 
